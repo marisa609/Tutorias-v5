@@ -1,0 +1,38 @@
+* {
+	-fx-font: 14 arial;
+	-fx-base: #b0c4de;
+}
+
+.tab {
+	-fx-padding: 20 20 20 20;
+}
+
+.tab:selected .focus-indicator{
+	-fx-border-color: transparent;
+}
+
+.vbox {
+	-fx-background-color: #b0c4de;
+}
+
+.menu-item, .context-menu {
+	-fx-background-color: #b0c4de;
+}
+
+.menu-item:hover {
+	-fx-background-color: #4682b4;
+}
+
+.button {
+	-fx-background-radius: 10;
+}
+
+#btAnadir, #btAceptar, #btListar, #btAnadirHoras, #btAnadirPrecioMaterial {
+	-fx-font: 22 "arial";
+	-fx-base: #b6e7c9;
+}
+
+#btCancelar, #btBorrar, #btCerrar {
+	-fx-font: 20 "arial";
+	-fx-base: #dc143c;
+}
