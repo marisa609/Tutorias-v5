@@ -1,6 +1,8 @@
 package org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas;
 
 import org.iesalandalus.programacion.tutorias.mvc.controlador.IControlador;
+
+
 import org.iesalandalus.programacion.tutorias.mvc.vista.IVista;
 import org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.controladoresvistas.ControladorVentanaPrincipal;
 import org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.utilidades.Dialogos;
@@ -12,9 +14,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/*IMplementa IVista y extiende de Application (debe crear el método start) y el launch para lanzar
+ * la ventana
+ */
+
 public class VistaIUGPestanas extends Application implements IVista {
 
-	private static IControlador controladorMVC = null;
+		private static IControlador controladorMVC = null;	// Se refiere a Controlador
 
 	@Override
 	public void setControlador(IControlador controlador) {
@@ -41,7 +47,10 @@ public class VistaIUGPestanas extends Application implements IVista {
 			/*
 			 * cVentanaPrincipal.setControladorMVC(controladorMVC);
 			 * cVentanaPrincipal.actualizaProfesores(); cVentanaPrincipal.actualizaAulas();
-			 * cVentanaPrincipal.actualizaReservas();
+			 * cVentanaPrincipal.actualizaTutorias();
+			 * cVentanaPrincipal.actualizaAlumnos();
+			 * cVentanaPrincipal.actualizaCitas();
+			 * cVentanaPrincipal.actualizaSesiones();
 			 */
 
 			Scene escena = new Scene(raiz);

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="629.0" stylesheets="@../estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.controladoresvistas.ControladorVentanaPrincipal">
+   <children>
+      <MenuBar fx:id="mbTutorias" prefWidth="600.0">
+         <menus>
+            <Menu fx:id="mTutoriasArchivo" mnemonicParsing="false" text="Archivo">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu fx:id="mTutoriasAyuda" mnemonicParsing="false" text="Ayuda">
+               <items>
+                  <MenuItem fx:id="miTutoriasAcercaDe" mnemonicParsing="false" text="Acerca de" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TabPane prefHeight="735.0" prefWidth="629.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Alumnos">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="254.0" prefWidth="600.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="712.0" prefWidth="629.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lbAlumnosListadoAlumnos" text="Alumnos">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin></Label>
+                              <TableView fx:id="tvAlumnos" prefHeight="338.0" prefWidth="609.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcNombreAlumnos" prefWidth="189.0" text="Nombre" />
+                                    <TableColumn fx:id="tcCorreoAlumnos" prefWidth="222.0" text="Correo" />
+                                    <TableColumn fx:id="tcExpedienteAlumnos" prefWidth="197.0" text="Expediente" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu fx:id="cmAlumnos">
+                                       <items>
+                                          <MenuItem fx:id="mimiAlumnosAnadirAlumno" mnemonicParsing="false" text="Añadir Alumno" />
+                                          <MenuItem fx:id="mimiAlumnosBorrarAlumno" mnemonicParsing="false" text="Borrar Alumno" />
+                                          <MenuItem fx:id="miAlumnosCrearCita" mnemonicParsing="false" text="Crear Cita" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label fx:id="lbAlumnosListadoCitas" text="Citas Alumno" />
+                              <TableView fx:id="tvAlumnosCitas" prefHeight="300.0" prefWidth="609.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcAlumnosCitasHora" prefWidth="83.0" text="Hora" />
+                                    <TableColumn fx:id="tcAlumnosCitasSesion" prefWidth="233.0" text="Sesión" />
+                                    <TableColumn fx:id="tcAlumnosCitasTutoria" prefWidth="123.0" text="Tutoria" />
+                                    <TableColumn fx:id="tcAlumnosCitasProfesor" prefWidth="140.0" text="Profesor" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem fx:id="miAlumnosBorrarCita" mnemonicParsing="false" text="Borrar Cita" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Profesores">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="707.0" prefWidth="629.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="lbProfesoresListadoProfesores" text="Profesores" />
+                              <TableView fx:id="tvProfesores" prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcProfesoresNombre" prefWidth="246.0" text="Nombre" />
+                                    <TableColumn fx:id="tcProfesoresDni" minWidth="0.0" prefWidth="111.0" text="DNI" />
+                                    <TableColumn fx:id="tcProfesoresCorreo" prefWidth="231.0" text="Correo" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu fx:id="cmProfesores">
+                                       <items>
+                                          <MenuItem fx:id="miProfesoresAnadirProfesor" mnemonicParsing="false" text="Añadir Profesor" />
+                                          <MenuItem fx:id="miProfesoresBorrarProfesor" mnemonicParsing="false" text="Borrar Profesor" />
+                                          <MenuItem fx:id="miProfesoresCrearTutoria" mnemonicParsing="false" text="Crear Tutoría" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label fx:id="lbProfesoresTutoriasDelProfesor" alignment="CENTER" prefWidth="338.0" text="Tutorías del Profesor" />
+                              <TableView fx:id="tvProfesoresTutorias" prefHeight="200.0" prefWidth="580.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcProfesoresTutoriasDelProfesorNombre" prefWidth="608.0" text="Nombre" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem fx:id="miProfesoresAnadirSesion" mnemonicParsing="false" text="Añadir Sesión" />
+                                          <MenuItem fx:id="miProfesoresBorrarTutoria" mnemonicParsing="false" text="Borrar Tutoría" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label fx:id="lbProfesoresSesionesTutoria" text="Sesiones de la Tutoría" />
+                              <TableView fx:id="tvProfesoresSesiones" prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcProfesoresSesionesFecha" prefWidth="69.0" text="Fecha" />
+                                    <TableColumn fx:id="tcProfesoresSesionesInicio" prefWidth="230.0" text="Inicio" />
+                                    <TableColumn fx:id="tcProfesoresSesionesFin" prefWidth="158.0" text="Fin" />
+                                    <TableColumn fx:id="tcProfesoresSesionesDuracion" prefWidth="151.0" text="Duración" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu fx:id="cmSesiones">
+                                       <items>
+                                          <MenuItem fx:id="miSesionesAñadirCita" mnemonicParsing="false" text="Añadir Cita" />
+                                          <MenuItem fx:id="miSesionesBorrarSesion" mnemonicParsing="false" text="Borrar Sesión" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                              <Label fx:id="lbCitasListadoCitas" text="Citas de la Sesión" />
+                              <TableView fx:id="tvProfesoresCitas" prefHeight="290.0" prefWidth="580.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcProfesoresCitasHora" prefWidth="116.0" text="Hora" />
+                                    <TableColumn fx:id="tcProfesoresCitasAlumno" prefWidth="492.0" text="Alumno" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu fx:id="cmCitas">
+                                       <items>
+                                          <MenuItem fx:id="miCitasBorrarCita" mnemonicParsing="false" text="Borrar Cita" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="355.0" stylesheets="@/C:/Users/maria/git/Tutorias-v4/src/main/resources/org/iesalandalus/programacion/tutorias/mvc/vista/iugpestanas/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="350.0" prefWidth="355.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="355.0" spacing="20.0">
+               <children>
+                  <Label fx:id="lbSesionesFecha" text="Fecha:" />
+                  <TextField fx:id="tfSesionesFecha" prefHeight="25.0" prefWidth="240.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="355.0" spacing="20.0">
+               <children>
+                  <Label fx:id="lbSesionesInicio" text="Inicio:" />
+                  <TextField fx:id="tfSesionesInicio" prefHeight="25.0" prefWidth="240.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="61.0" prefWidth="355.0" spacing="20.0">
+               <children>
+                  <Label fx:id="lbSesionesFin" text="Fin:" />
+                  <TextField fx:id="tfSesionesFin" prefHeight="25.0" prefWidth="240.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="355.0" spacing="20.0">
+               <children>
+                  <Label fx:id="lbSesionesDuracion" text="Duración:" />
+                  <TextField fx:id="tfSesionesDuracion" prefHeight="25.0" prefWidth="240.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="199.0" prefWidth="355.0" spacing="30.0">
+         <children>
+            <Button fx:id="btnSesionesCancelar" mnemonicParsing="false" text="Cancelar" />
+            <Button fx:id="btnSesionesAnadir" mnemonicParsing="false" text="Añadir" />
+         </children>
+         <padding>
+            <Insets right="60.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
