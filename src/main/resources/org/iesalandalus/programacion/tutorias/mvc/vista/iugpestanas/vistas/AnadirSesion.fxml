@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="355.0" stylesheets="@/C:/Users/maria/git/Tutorias-v4/src/main/resources/org/iesalandalus/programacion/tutorias/mvc/vista/iugpestanas/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="355.0" stylesheets="@../estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.controladoresvistas.ControladorAnadirSesion">
    <children>
       <VBox prefHeight="350.0" prefWidth="355.0">
          <children>

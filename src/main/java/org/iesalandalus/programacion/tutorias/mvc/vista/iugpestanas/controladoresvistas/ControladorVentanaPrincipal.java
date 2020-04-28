@@ -48,15 +48,15 @@ public class ControladorVentanaPrincipal implements Initializable {
 	 * String PUNTOS = "puntos";
 	 */
 
-	// Tantos observablesList como los que tiene el controlador
+	// Tantos observablesList como los que tiene el controlador, creo que sobran porque esta verisón está optimizada
 
 	private ObservableList<Profesor> profesores = FXCollections.observableArrayList();
 	private ObservableList<Alumno> alumnos = FXCollections.observableArrayList();
-	private ObservableList<Tutoria> tutorias = FXCollections.observableArrayList();
+	// private ObservableList<Tutoria> tutorias = FXCollections.observableArrayList();
 	private ObservableList<Tutoria> tutoriasProfesor = FXCollections.observableArrayList();
-	private ObservableList<Sesion> sesiones = FXCollections.observableArrayList();
+	// private ObservableList<Sesion> sesiones = FXCollections.observableArrayList();
 	private ObservableList<Sesion> sesionesTutoria = FXCollections.observableArrayList();
-	private ObservableList<Cita> citas = FXCollections.observableArrayList();
+	// private ObservableList<Cita> citas = FXCollections.observableArrayList();
 	private ObservableList<Cita> citasAlumno = FXCollections.observableArrayList();
 	private ObservableList<Cita> citasSesion = FXCollections.observableArrayList();
 
