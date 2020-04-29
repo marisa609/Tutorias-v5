@@ -101,7 +101,7 @@
                                  <contextMenu>
                                     <ContextMenu fx:id="cmProfesores">
                                        <items>
-                                          <MenuItem fx:id="miProfesoresAnadirProfesor" mnemonicParsing="false" text="Añadir Profesor" />
+                                          <MenuItem fx:id="miProfesoresAnadirProfesor" mnemonicParsing="false" onAction="#anadirProfesor" text="Añadir Profesor" />
                                           <MenuItem fx:id="miProfesoresBorrarProfesor" mnemonicParsing="false" text="Borrar Profesor" />
                                           <MenuItem fx:id="miProfesoresCrearTutoria" mnemonicParsing="false" text="Crear Tutoría" />
                                        </items>

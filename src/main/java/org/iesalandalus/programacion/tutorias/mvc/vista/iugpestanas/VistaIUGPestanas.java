@@ -2,7 +2,6 @@ package org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas;
 
 import org.iesalandalus.programacion.tutorias.mvc.controlador.IControlador;
 
-
 import org.iesalandalus.programacion.tutorias.mvc.vista.IVista;
 import org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.controladoresvistas.ControladorVentanaPrincipal;
 import org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.utilidades.Dialogos;
@@ -20,7 +19,7 @@ import javafx.stage.WindowEvent;
 
 public class VistaIUGPestanas extends Application implements IVista {
 
-		private static IControlador controladorMVC = null;	// Se refiere a Controlador
+	private static IControlador controladorMVC = null; // Se refiere a Controlador
 
 	@Override
 	public void setControlador(IControlador controlador) {
@@ -44,14 +43,13 @@ public class VistaIUGPestanas extends Application implements IVista {
 					getClass().getResource("vistas/VentanaPrincipal.fxml"));
 			VBox raiz = cargadorVentanaPrincipal.load();
 			ControladorVentanaPrincipal cVentanaPrincipal = cargadorVentanaPrincipal.getController();
-			/*
-			 * cVentanaPrincipal.setControladorMVC(controladorMVC);
-			 * cVentanaPrincipal.actualizaProfesores(); cVentanaPrincipal.actualizaAulas();
-			 * cVentanaPrincipal.actualizaTutorias();
-			 * cVentanaPrincipal.actualizaAlumnos();
-			 * cVentanaPrincipal.actualizaCitas();
-			 * cVentanaPrincipal.actualizaSesiones();
-			 */
+
+			cVentanaPrincipal.setControladorMVC(controladorMVC);
+			cVentanaPrincipal.actualizaProfesores();
+			cVentanaPrincipal.actualizaTutorias();
+			cVentanaPrincipal.actualizaAlumnos();
+			cVentanaPrincipal.actualizaCitas();
+			cVentanaPrincipal.actualizaSesiones();
 
 			Scene escena = new Scene(raiz);
 			escenarioPrincipal.setOnCloseRequest(e -> confirmarSalida(escenarioPrincipal, e));
