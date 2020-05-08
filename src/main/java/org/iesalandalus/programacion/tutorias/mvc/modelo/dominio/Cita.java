@@ -137,4 +137,14 @@ public class Cita implements Serializable {
 				getHora().format(FORMATO_HORA));
 	}
 
+	public Profesor getProfesor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getTutoria() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

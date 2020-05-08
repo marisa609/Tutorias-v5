@@ -48,11 +48,11 @@
                                     <TableColumn fx:id="tcExpedienteAlumnos" prefWidth="197.0" text="Expediente" />
                                  </columns>
                                  <contextMenu>
-                                    <ContextMenu fx:id="cmAlumnos">
+                                    <ContextMenu fx:id="cmAlumnosAlumnos">
                                        <items>
-                                          <MenuItem fx:id="mimiAlumnosAnadirAlumno" mnemonicParsing="false" text="Añadir Alumno" />
-                                          <MenuItem fx:id="mimiAlumnosBorrarAlumno" mnemonicParsing="false" text="Borrar Alumno" />
-                                          <MenuItem fx:id="miAlumnosCrearCita" mnemonicParsing="false" text="Crear Cita" />
+                                          <MenuItem fx:id="miAlumnosAnadirAlumno" mnemonicParsing="false" onAction="#anadirAlumno" text="Añadir Alumno" />
+                                          <MenuItem fx:id="miAlumnosBorrarAlumno" mnemonicParsing="false" onAction="#borrarAlumno" text="Borrar Alumno" />
+                                          <MenuItem fx:id="miAlumnosCrearCita" mnemonicParsing="false" onAction="#anadirCitaAlumno" text="Crear Cita" />
                                        </items>
                                     </ContextMenu>
                                  </contextMenu>
@@ -61,14 +61,14 @@
                               <TableView fx:id="tvAlumnosCitas" prefHeight="300.0" prefWidth="609.0">
                                  <columns>
                                     <TableColumn fx:id="tcAlumnosCitasHora" prefWidth="83.0" text="Hora" />
-                                    <TableColumn fx:id="tcAlumnosCitasSesion" prefWidth="233.0" text="Sesión" />
+                                    <TableColumn fx:id="tcAlumnosCitasFecha" prefWidth="233.0" text="Fecha" />
                                     <TableColumn fx:id="tcAlumnosCitasTutoria" prefWidth="123.0" text="Tutoria" />
                                     <TableColumn fx:id="tcAlumnosCitasProfesor" prefWidth="140.0" text="Profesor" />
                                  </columns>
                                  <contextMenu>
-                                    <ContextMenu>
+                                    <ContextMenu fx:id="cmCitasAlumno">
                                       <items>
-                                        <MenuItem fx:id="miAlumnosBorrarCita" mnemonicParsing="false" text="Borrar Cita" />
+                                        <MenuItem fx:id="miAlumnosBorrarCita" mnemonicParsing="false" onAction="#borrarCitaAlumno" text="Borrar Cita" />
                                       </items>
                                     </ContextMenu>
                                  </contextMenu>
@@ -102,8 +102,8 @@
                                     <ContextMenu fx:id="cmProfesores">
                                        <items>
                                           <MenuItem fx:id="miProfesoresAnadirProfesor" mnemonicParsing="false" onAction="#anadirProfesor" text="Añadir Profesor" />
-                                          <MenuItem fx:id="miProfesoresBorrarProfesor" mnemonicParsing="false" text="Borrar Profesor" />
-                                          <MenuItem fx:id="miProfesoresCrearTutoria" mnemonicParsing="false" text="Crear Tutoría" />
+                                          <MenuItem fx:id="miProfesoresBorrarProfesor" mnemonicParsing="false" onAction="#borrarProfesor" text="Borrar Profesor" />
+                                          <MenuItem fx:id="miProfesoresCrearTutoria" mnemonicParsing="false" onAction="#anadirTutoria" text="Crear Tutoría" />
                                        </items>
                                     </ContextMenu>
                                  </contextMenu>
@@ -114,10 +114,10 @@
                                     <TableColumn fx:id="tcProfesoresTutoriasDelProfesorNombre" prefWidth="608.0" text="Nombre" />
                                  </columns>
                                  <contextMenu>
-                                    <ContextMenu>
+                                    <ContextMenu fx:id="cmTutorias">
                                       <items>
-                                        <MenuItem fx:id="miProfesoresAnadirSesion" mnemonicParsing="false" text="Añadir Sesión" />
-                                          <MenuItem fx:id="miProfesoresBorrarTutoria" mnemonicParsing="false" text="Borrar Tutoría" />
+                                        <MenuItem fx:id="miProfesoresAnadirSesion" mnemonicParsing="false" onAction="#anadirSesion" text="Añadir Sesión" />
+                                          <MenuItem fx:id="miProfesoresBorrarTutoria" mnemonicParsing="false" onAction="#borrarTutoria" text="Borrar Tutoría" />
                                       </items>
                                     </ContextMenu>
                                  </contextMenu>
@@ -133,22 +133,22 @@
                                  <contextMenu>
                                     <ContextMenu fx:id="cmSesiones">
                                        <items>
-                                          <MenuItem fx:id="miSesionesAñadirCita" mnemonicParsing="false" text="Añadir Cita" />
-                                          <MenuItem fx:id="miSesionesBorrarSesion" mnemonicParsing="false" text="Borrar Sesión" />
+                                          <MenuItem fx:id="miSesionesAñadirCita" mnemonicParsing="false" onAction="#anadirCitaDeLaSesion" text="Añadir Cita" />
+                                          <MenuItem fx:id="miSesionesBorrarSesion" mnemonicParsing="false" onAction="#borrarSesion" text="Borrar Sesión" />
                                        </items>
                                     </ContextMenu>
                                  </contextMenu>
                               </TableView>
                               <Label fx:id="lbCitasListadoCitas" text="Citas de la Sesión" />
-                              <TableView fx:id="tvProfesoresCitas" prefHeight="290.0" prefWidth="580.0">
+                              <TableView fx:id="tvCitasDeLaSesion" prefHeight="290.0" prefWidth="580.0">
                                  <columns>
-                                    <TableColumn fx:id="tcProfesoresCitasHora" prefWidth="116.0" text="Hora" />
-                                    <TableColumn fx:id="tcProfesoresCitasAlumno" prefWidth="492.0" text="Alumno" />
+                                    <TableColumn fx:id="tcCitasDeLaSesionHora" prefWidth="116.0" text="Hora" />
+                                    <TableColumn fx:id="tcCitasDeLaSesionAlumno" prefWidth="492.0" text="Alumno" />
                                  </columns>
                                  <contextMenu>
                                     <ContextMenu fx:id="cmCitas">
                                        <items>
-                                          <MenuItem fx:id="miCitasBorrarCita" mnemonicParsing="false" text="Borrar Cita" />
+                                          <MenuItem fx:id="miCitasBorrarCita" mnemonicParsing="false" onAction="#borrarCitaDeLaSesion" text="Borrar Cita" />
                                        </items>
                                     </ContextMenu>
                                  </contextMenu>
