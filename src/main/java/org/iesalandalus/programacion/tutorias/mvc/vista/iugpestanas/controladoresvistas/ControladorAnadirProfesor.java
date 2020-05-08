@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.controladoresvistas;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -77,7 +78,7 @@ public class ControladorAnadirProfesor implements Initializable { // ACABADA
 	
 	
 	@FXML
-	private void anadirProfesor() {
+	private void anadir() {
 		Profesor profesor = null;
 		try {
 			profesor = getProfesor(); // lee los datos del formulario
@@ -90,7 +91,7 @@ public class ControladorAnadirProfesor implements Initializable { // ACABADA
 		}	
 	}
 	
-	private Profesor getProfesor() { // Lee los datos y los revuelve
+	private Profesor getProfesor() { // Lee los datos y los devuelve
 		String nombre = tfProfesorNombre.getText();
 		String dni = tfProfesorDni.getText();
 		String correo = tfProfesoresCorreo.getText().isEmpty() ? null : tfProfesoresCorreo.getText();
@@ -98,7 +99,7 @@ public class ControladorAnadirProfesor implements Initializable { // ACABADA
 	}
 	
 	@FXML
-	private void cancelar() {
+	private void cancelar(ActionEvent event) {
 		((Stage) btnProfesoresCancelar.getScene().getWindow()).close();
 	}
 	
