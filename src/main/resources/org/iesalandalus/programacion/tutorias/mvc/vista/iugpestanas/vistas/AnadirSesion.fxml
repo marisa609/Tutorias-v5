@@ -54,8 +54,8 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="199.0" prefWidth="355.0" spacing="30.0">
          <children>
-            <Button fx:id="btnSesionesCancelar" mnemonicParsing="false" text="Cancelar" />
-            <Button fx:id="btnSesionesAnadir" mnemonicParsing="false" text="Añadir" />
+            <Button fx:id="btnSesionesCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Button fx:id="btnSesionesAnadir" mnemonicParsing="false" onAction="#anadirSesion" text="Añadir" />
          </children>
          <padding>
             <Insets right="60.0" />

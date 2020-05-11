@@ -59,11 +59,6 @@ public class ControladorVentanaPrincipal implements Initializable {
 	private static final String BORRAR_TUTORIA = "Borrar Tutoria";
 	private static final String BORRAR_SESION = "Borrar Sesion";
 	private static final String BORRAR_CITA = "Borrar Cita";
-	private static final String ANADIR_PROFESOR = "Añadir Profesor";
-	private static final String ANADIR_ALUMNO = "Añadir Alumno";
-	private static final String ANADIR_TUTORIA = "Añadir Tutoria";
-	private static final String ANADIR_SESION = "Añadir Sesion";
-	private static final String ANADIR_CITA = "Añadir Cita";
 
 	@FXML
 	private TableView<Alumno> tvAlumnos;
@@ -155,8 +150,6 @@ public class ControladorVentanaPrincipal implements Initializable {
 	private ControladorAnadirTutoria cAnadirTutoria;
 
 	private IControlador controladorMVC;
-
-	/* Copiar todos los ON action */
 
 	public void setControladorMVC(IControlador controladorMVC) {
 		this.controladorMVC = controladorMVC;
@@ -316,13 +309,13 @@ public class ControladorVentanaPrincipal implements Initializable {
 			VBox raizAnadirCitaAlumno = cargadorAnadirCitaAlumno.load();
 			cAnadirCitaAlumno = cargadorAnadirCitaAlumno.getController();
 			cAnadirCitaAlumno.setControladorMVC(controladorMVC);
-			cAnadirCitaAlumno.inicializa(alumnos, citasAlumno, alumno);
+			cAnadirCitaAlumno.inicializa(profesores, citasAlumno, alumno);
 			Scene escenaAnadirCitaAlumno = new Scene(raizAnadirCitaAlumno);
 			anadirCitaAlumno.setTitle("Añadir Cita del Alumno");
 			anadirCitaAlumno.initModality(Modality.APPLICATION_MODAL);
 			anadirCitaAlumno.setScene(escenaAnadirCitaAlumno);
 		} else {
-			cAnadirCitaAlumno.inicializa(alumnos, citasAlumno, alumno);
+			cAnadirCitaAlumno.inicializa(profesores, citasAlumno, alumno);
 		}
 
 	}
@@ -337,14 +330,14 @@ public class ControladorVentanaPrincipal implements Initializable {
 			cAnadirTutoria.setControladorMVC(controladorMVC);
 			cAnadirTutoria.setProfesor(profesor);
 			cAnadirTutoria.setTutorias(tutorias);
-			cAnadirTutoria.inicializa();
+			cAnadirTutoria.inicializa(profesores);
 			Scene escenaAnadirTutoria = new Scene(raizAnadirTutoria);
 			anadirTutoria.setTitle("Añadir tutoría");
 			anadirTutoria.initModality(Modality.APPLICATION_MODAL);
 			anadirTutoria.setScene(escenaAnadirTutoria);
 
 		} else {
-			cAnadirTutoria.inicializa();
+			cAnadirTutoria.inicializa(profesores);
 		}
 	}
 

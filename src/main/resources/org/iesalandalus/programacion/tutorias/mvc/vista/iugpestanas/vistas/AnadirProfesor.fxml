@@ -46,7 +46,7 @@
       <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="355.0" spacing="30.0">
          <children>
             <Button fx:id="btnProfesoresCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-            <Button fx:id="btnProfesoresAnadir" mnemonicParsing="false" onAction="#anadir" text="Añadir" />
+            <Button fx:id="btnProfesoresAnadir" mnemonicParsing="false" onAction="#anadirProfesor" text="Añadir" />
          </children>
          <padding>
             <Insets right="60.0" />

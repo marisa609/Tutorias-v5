@@ -58,8 +58,8 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="108.0" prefWidth="355.0" spacing="30.0">
          <children>
-            <Button fx:id="btnAnadirCitaAlumnoCitasCancelar" mnemonicParsing="false" text="Cancelar" />
-            <Button fx:id="btnAnadirCitaAlumnoAnadir" mnemonicParsing="false" text="Añadir" />
+            <Button fx:id="btnAnadirCitaAlumnoCitasCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Button fx:id="btnAnadirCitaAlumnoAnadir" mnemonicParsing="false" onAction="#anadirCitaAlumno" text="Añadir" />
          </children>
          <padding>
             <Insets right="60.0" />

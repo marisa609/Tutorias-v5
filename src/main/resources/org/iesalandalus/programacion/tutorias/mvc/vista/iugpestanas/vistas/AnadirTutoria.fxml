@@ -31,8 +31,8 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="355.0" spacing="30.0">
          <children>
-            <Button fx:id="btnTutoriaCancelar" mnemonicParsing="false" text="Cancelar" />
-            <Button fx:id="btnTutoriaAnadir" mnemonicParsing="false" text="Añadir" />
+            <Button fx:id="btnTutoriaCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Button fx:id="btnTutoriaAnadir" mnemonicParsing="false" onAction="#anadirTutoria" text="Añadir" />
          </children>
          <opaqueInsets>
             <Insets />
