@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import org.iesalandalus.programacion.tutorias.mvc.controlador.IControlador;
 import org.iesalandalus.programacion.tutorias.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.tutorias.mvc.modelo.dominio.Cita;
+
 import org.iesalandalus.programacion.tutorias.mvc.modelo.dominio.Sesion;
 import org.iesalandalus.programacion.tutorias.mvc.vista.iugpestanas.utilidades.Dialogos;
 
@@ -19,24 +20,21 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 
 public class ControladorAnadirCitaDeLaSesion implements Initializable {
 
 	private ObservableList<Cita> citasSesion;
-	private ObservableList<Alumno> alumnos;
 	private Sesion sesion;
-
-	// poner el ListView lcAlumno y no su observable list
 
 	private IControlador controladorMVC;
 
-	
+	private static final String ER_HORA = "\\d{1,2}:\\d{2}";
 
 	@FXML
-	private ListView<?> lvAnadirCitaDeLaSesionAlumno;
-
+	private ListView<Alumno> lvAnadirCitaDeLaSesionAlumno;
 
 	@FXML
 	private TextField tfAnadirCitaDeLaSesionHora;
@@ -54,7 +52,20 @@ public class ControladorAnadirCitaDeLaSesion implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		lvAnadirCitaDeLaSesionAlumno.setCellFactory(l -> new CeldaAlumno());
-		tfAnadirCitaDeLaSesionHora.textProperty().addListener((ob, ov, nv) -> compruebaCampoTexto(ER_HORA, tfAnadirCitaDeLaSesionHora));
+		tfAnadirCitaDeLaSesionHora.textProperty()
+				.addListener((ob, ov, nv) -> compruebaCampoTexto(ER_HORA, tfAnadirCitaDeLaSesionHora));
+	}
+
+	private class CeldaAlumno extends ListCell<Alumno> {
+		@Override
+		public void updateItem(Alumno alumno, boolean vacio) {
+			super.updateItem(alumno, vacio);
+			if (vacio) {
+				setText("");
+			} else {
+				setText(alumno.getNombre());
+			}
+		}
 	}
 
 	private void anadirCitaDeLaSesion() {
@@ -63,7 +74,7 @@ public class ControladorAnadirCitaDeLaSesion implements Initializable {
 			cita = getCita();
 			controladorMVC.insertar(cita);
 			;
-			citas.setAll(controladorMVC.getCitas(sesion)); // citasSesion
+			citasSesion.setAll(controladorMVC.getCitas(sesion));
 			Stage propietario = ((Stage) btnAnadircitadeLaSesionAnadir.getScene().getWindow());
 			Dialogos.mostrarDialogoInformacion("Añadir Cita", "Cita añadido satisfactoriamente", propietario);
 		} catch (Exception e) {
@@ -80,11 +91,10 @@ public class ControladorAnadirCitaDeLaSesion implements Initializable {
 	public void inicializa(ObservableList<Alumno> alumnos, ObservableList<Cita> citasSesion, Sesion sesion) {
 		this.citasSesion = citasSesion;
 		this.sesion = sesion;
-		this.alumnos = alumnos;
 		lvAnadirCitaDeLaSesionAlumno.setItems(alumnos);
 		lvAnadirCitaDeLaSesionAlumno.getSelectionModel().clearSelection();
 		tfAnadirCitaDeLaSesionHora.setText("");
-		compruebaCampoTexto(ER_HORA, tfHora);
+		compruebaCampoTexto(ER_HORA, tfAnadirCitaDeLaSesionHora);
 
 	}
 
@@ -99,7 +109,7 @@ public class ControladorAnadirCitaDeLaSesion implements Initializable {
 
 	private Cita getCita() {
 		final DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("H:mm");
-		Alumno alumno = lvAnadirCitaDeLaSesionAlumno.getSelectionModel().getSelectedIdem();
+		Alumno alumno = lvAnadirCitaDeLaSesionAlumno.getSelectionModel().getSelectedItem();
 		LocalTime hora = LocalTime.parse(tfAnadirCitaDeLaSesionHora.getText(), formatoHora);
 		return new Cita(alumno, sesion, hora);
 	}

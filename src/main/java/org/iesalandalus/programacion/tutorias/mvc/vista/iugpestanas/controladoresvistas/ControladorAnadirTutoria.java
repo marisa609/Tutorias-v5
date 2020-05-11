@@ -24,7 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class ControladorAnadirTutoria implements Initializable {
+public class ControladorAnadirTutoria implements Initializable {  // ACABADA
 
 	private ObservableList<Tutoria> tutorias;
 	private ObservableList<Profesor> profesores;

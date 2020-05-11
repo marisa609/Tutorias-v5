@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="450.0" spacing="20.0" stylesheets="@../../../../../git/Tutorias-v4/src/main/resources/org/iesalandalus/programacion/tutorias/mvc/vista/iugpestanas/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="450.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../git/Tutorias-v4/src/main/resources/org/iesalandalus/programacion/tutorias/mvc/vista/iugpestanas/imagenes/logo-ies.png" />
+            <Image url="@../imagenes/logo-ies.png" />
          </image>
          <VBox.margin>
             <Insets top="10.0" />
@@ -23,4 +24,8 @@
    <padding>
       <Insets left="20.0" right="20.0" top="20.0" />
    </padding>
+   <stylesheets>
+      <URL value="@../../../../../git/Tutorias-v4/src/main/resources/org/iesalandalus/programacion/tutorias/mvc/vista/iugpestanas/estilos.css" />
+      <URL value="@../estilos.css" />
+   </stylesheets>
 </VBox>
