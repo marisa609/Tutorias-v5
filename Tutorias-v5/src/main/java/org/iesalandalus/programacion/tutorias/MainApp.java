@@ -30,6 +30,7 @@ public class MainApp {
 																			// acceder a ficheros)
 		IVista vista = procesarArgumentos(args);// FactoriaVista.IUGPESTANAS.crear(); o Para Vista texto:
 												// FactoriaVista.TEXTO.crear();
+
 		IControlador controlador = new Controlador(modelo, vista);
 		controlador.comenzar();
 	}

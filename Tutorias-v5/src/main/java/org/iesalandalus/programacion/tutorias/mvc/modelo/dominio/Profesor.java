@@ -11,7 +11,7 @@ public class Profesor implements Serializable {
 
 	// DeclaraciÃ³n de atributos
 
-	private static final String ER_NOMBRE = "[A-Za-zÃ¡Ã©Ã­Ã³ÃºÃÃ‰ÃÃ“Ãš]+(\\s+[A-Za-zÃ¡Ã©Ã­Ã³ÃºÃÃ‰ÃÃ“Ãš]+)+";
+	private static final String ER_NOMBRE = "([a-zA-ZÁÉÍÓÚáéíóú]+)(\\s+([a-zA-ZÁÉÍÓÚáéíóú]+))+";
 	private static final String ER_CORREO = ".+@[a-zA-Z]+\\.[a-zA-Z]+";
 	private final static String ER_DNI = "([0-9]{8})([a-zA-Z])";
 

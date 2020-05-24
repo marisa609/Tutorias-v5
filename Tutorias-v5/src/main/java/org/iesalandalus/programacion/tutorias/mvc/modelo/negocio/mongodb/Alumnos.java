@@ -36,6 +36,7 @@ public class Alumnos implements IAlumnos {
 		colecccionAlumnos = MongoDB.getBD().getCollection(COLECCION);
 		calcularUltimoIdentificador();
 	}
+	
 
 	@Override
 	public void terminar() {

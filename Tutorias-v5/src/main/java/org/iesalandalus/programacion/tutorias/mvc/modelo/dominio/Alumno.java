@@ -4,18 +4,16 @@ import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
 public class Alumno implements Serializable {
 
 	// DeclaraciÃ³n
 
 	private String nombre, correo, expediente;
 
-	private static final String ER_NOMBRE = "[A-Za-zÃ¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš]+(\\s+[A-Za-zÃ¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš]+)+";
+	private static final String ER_NOMBRE = "([a-zA-ZÁÉÍÓÚáéíóú]+)(\\s+([a-zA-ZÁÉÍÓÚáéíóú]+))+";
 	private static final String ER_CORREO = ".+@[a-zA-Z]+\\.[a-zA-Z]+";
 	private static final String PREFIJO_EXPEDIENTE = "SP_";
-	private static int ultimoIdentificador;
+	private static int ultimoIdentificador = 0;
 
 	// MÃ©todo incrementaUltimoIdentificador
 
@@ -66,9 +64,9 @@ public class Alumno implements Serializable {
 		setCorreo(alumno.getCorreo());
 		expediente = alumno.getExpediente();
 	}
-	
+
 	// Constructor sobrecargado
-	
+
 	public Alumno(String nombre, String correo, int identificador) {
 		setNombre(nombre);
 		setCorreo(correo);
@@ -124,16 +122,17 @@ public class Alumno implements Serializable {
 		expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + ultimoIdentificador;
 
 	}
-	
-	private void setExpediente(int identidicador) {
 
-		incrementaUltimoIdentificador();
-		expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + ultimoIdentificador;
+	private void setExpediente(int identificador) {
+		if (identificador <= 0) {
+			throw new NullPointerException("ERROR: El identificador tiene que ser mayor que 0.");
+		}
+		this.expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + identificador;
 
 	}
-	
+
 	public static void setUltimoIdentificador(int maxIdentificador) {
-		ultimoIdentificador = maxIdentificador;
+		Alumno.ultimoIdentificador = maxIdentificador;
 	}
 
 	// MÃ©todo getIniciales
@@ -198,7 +197,5 @@ public class Alumno implements Serializable {
 	public String toString() {
 		return "nombre=" + nombre + " (" + getIniciales() + ")," + " correo=" + correo + ", expediente=" + expediente;
 	}
-
-	
 
 }
