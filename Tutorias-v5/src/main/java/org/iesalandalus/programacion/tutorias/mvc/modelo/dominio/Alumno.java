@@ -8,26 +8,26 @@ import java.util.regex.Pattern;
 
 public class Alumno implements Serializable {
 
-	// Declaración
+	// DeclaraciÃ³n
 
 	private String nombre, correo, expediente;
 
-	private static final String ER_NOMBRE = "[A-Za-záéíóúÁÉÍÓÚ]+(\\s+[A-Za-záéíóúÁÉÍÓÚ]+)+";
+	private static final String ER_NOMBRE = "[A-Za-zÃ¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš]+(\\s+[A-Za-zÃ¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš]+)+";
 	private static final String ER_CORREO = ".+@[a-zA-Z]+\\.[a-zA-Z]+";
 	private static final String PREFIJO_EXPEDIENTE = "SP_";
-	private static int ultimoIdentificador = 0;
+	private static int ultimoIdentificador;
 
-	// Método incrementaUltimoIdentificador
+	// MÃ©todo incrementaUltimoIdentificador
 
 	private static void incrementaUltimoIdentificador() {
 		ultimoIdentificador++;
 	}
 
-	// Método formateaNombre
+	// MÃ©todo formateaNombre
 
 	private String formateaNombre(String nombreAlumno) {
 		if (nombreAlumno == null || nombreAlumno.trim().length() == 0) {
-			throw new NullPointerException("ERROR: El nombre de un alumno no puede ser nulo o vacío.");
+			throw new NullPointerException("ERROR: El nombre de un alumno no puede ser nulo o vacÃ­o.");
 		}
 
 		nombreAlumno = nombreAlumno.replace("  ", " ");
@@ -35,7 +35,7 @@ public class Alumno implements Serializable {
 		String[] words = nombreAlumno.split("\\s+");
 
 		if (words.length == 0) {
-			throw new NullPointerException("ERROR: El nombre de un alumno no puede ser nulo o vacío.");
+			throw new NullPointerException("ERROR: El nombre de un alumno no puede ser nulo o vacÃ­o.");
 		}
 
 		StringBuilder stb = new StringBuilder();
@@ -47,7 +47,7 @@ public class Alumno implements Serializable {
 		return stb.toString().trim();
 	}
 
-	// Constructor con parámetros
+	// Constructor con parÃ¡metros
 
 	public Alumno(String nombre, String correo) {
 		setNombre(nombre);
@@ -66,6 +66,14 @@ public class Alumno implements Serializable {
 		setCorreo(alumno.getCorreo());
 		expediente = alumno.getExpediente();
 	}
+	
+	// Constructor sobrecargado
+	
+	public Alumno(String nombre, String correo, int identificador) {
+		setNombre(nombre);
+		setCorreo(correo);
+		setExpediente(identificador);
+	}
 
 	// Get y Set
 
@@ -78,10 +86,10 @@ public class Alumno implements Serializable {
 			throw new NullPointerException("ERROR: El nombre no puede ser nulo.");
 		}
 		if (nombre.trim().equals("")) {
-			throw new IllegalArgumentException("ERROR: El nombre no tiene un formato válido.");
+			throw new IllegalArgumentException("ERROR: El nombre no tiene un formato vÃ¡lido.");
 		}
 		if (!nombre.matches(ER_NOMBRE)) {
-			throw new IllegalArgumentException("ERROR: El nombre no tiene un formato válido.");
+			throw new IllegalArgumentException("ERROR: El nombre no tiene un formato vÃ¡lido.");
 		}
 
 		this.nombre = formateaNombre(nombre);
@@ -101,7 +109,7 @@ public class Alumno implements Serializable {
 		if (m.matches()) {
 			this.correo = correo;
 		} else {
-			throw new IllegalArgumentException("ERROR: El formato del correo no es válido.");
+			throw new IllegalArgumentException("ERROR: El formato del correo no es vÃ¡lido.");
 		}
 
 	}
@@ -116,8 +124,19 @@ public class Alumno implements Serializable {
 		expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + ultimoIdentificador;
 
 	}
+	
+	private void setExpediente(int identidicador) {
 
-	// Método getIniciales
+		incrementaUltimoIdentificador();
+		expediente = PREFIJO_EXPEDIENTE + getIniciales() + "_" + ultimoIdentificador;
+
+	}
+	
+	public static void setUltimoIdentificador(int maxIdentificador) {
+		ultimoIdentificador = maxIdentificador;
+	}
+
+	// MÃ©todo getIniciales
 
 	private String getIniciales() {
 
@@ -140,7 +159,7 @@ public class Alumno implements Serializable {
 			throw new NullPointerException("ERROR: El correo no puede ser nulo.");
 
 		if (correo.trim().equals("")) {
-			throw new IllegalArgumentException("ERROR: El formato del correo no es válido.");
+			throw new IllegalArgumentException("ERROR: El formato del correo no es vÃ¡lido.");
 		}
 
 		return new Alumno("Alumnx Inventadx", correo);
@@ -179,5 +198,7 @@ public class Alumno implements Serializable {
 	public String toString() {
 		return "nombre=" + nombre + " (" + getIniciales() + ")," + " correo=" + correo + ", expediente=" + expediente;
 	}
+
+	
 
 }
